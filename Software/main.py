@@ -1,6 +1,9 @@
-import random
 import os
+import random
+
 from func import *
+from menu_dicts import *
+
 os.system('cls||clear')
 #lotto
 """ 3 zł 
@@ -12,6 +15,19 @@ Wytypuj swoje liczby z zakresu od 1 do 80. """
 """ 12,5 zł
 Wybierz 5 liczb z 50 i 2 liczby z 12 """
 
+Session = True
+whereami = ''
 
-x = let_user_choose(1, 80, 5)
-log('ok',x)
+show_menu(menu_main)
+menu_choice = input()
+
+#print(menu_Lotto['1'])
+
+x = 'menu_' + menu_main[menu_choice]
+#print(x)
+
+#exec('''print(menu_Lotto['1'])''')
+
+y = f'show_menu({x})'
+exec(y)
+

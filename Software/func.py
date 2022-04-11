@@ -1,4 +1,3 @@
-from cgi import print_arguments
 import random
 import os
 import time
@@ -48,8 +47,14 @@ def let_user_choose(min, max, amount_to_choose):
                 choice_commit.append(choosen)
         finally:
             continue
+    clear()
     YN = askYN(f'Commit Numbers:{choice_commit}?')
     if YN == 'Y':
         return choice_commit
     else:
         exit
+
+def show_menu(menu):
+    options=menu.keys()
+    for entry in options: 
+      print(f'[{entry}] - {menu[entry]}')
