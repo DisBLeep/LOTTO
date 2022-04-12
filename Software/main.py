@@ -24,10 +24,6 @@ menu_choice = input()
 #print(menu_Lotto['1'])
 
 x = 'menu_' + menu_main[menu_choice]
-#print(x)
-
-#exec('''print(menu_Lotto['1'])''')
-
 y = f'show_menu({x})'
 exec(y)
 

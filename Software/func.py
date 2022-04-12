@@ -1,4 +1,4 @@
-import random
+import random as r
 import os
 import time
 #from main import *
@@ -48,11 +48,25 @@ def let_user_choose(min, max, amount_to_choose):
         finally:
             continue
     clear()
-    YN = askYN(f'Commit Numbers:{choice_commit}?')
-    if YN == 'Y':
+    commit_ticket = askYN(f'Commit Numbers:{choice_commit}?')
+    if commit_ticket == 'Y':
         return choice_commit
     else:
         exit
+
+def roll(game):
+    local_roll = []
+    for num in range():
+        pass
+    return
+
+def bankroll(game):
+    npc_count   = r.randint(game.min_npc, game.max_npc)
+    npc_pay     = npc_count * game.cost
+    #game.bank   += npc_pay
+    game.bank_plus(npc_pay)
+    print(f'{npc_count} npcs paid, current bank: {game.bank}')
+
 
 def show_menu(menu):
     options=menu.keys()
