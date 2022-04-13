@@ -1,3 +1,8 @@
+default_save = {
+    'npc1':100,
+    'npc2':200
+}
+
 menu_main = {
     '1':'Lotto',
     '2':'Multi Multi',

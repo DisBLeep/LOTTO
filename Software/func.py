@@ -9,7 +9,7 @@ def clear():
     os.system('cls||clear')
 
 def rand_array(min, max, amount):
-    result = random.sample(range(min, max), amount)
+    result = r.sample(range(min, max), amount)
     #if debug:
         #print(result)
     return result
@@ -67,8 +67,39 @@ def bankroll(game):
     game.bank_plus(npc_pay)
     print(f'{npc_count} npcs paid, current bank: {game.bank}')
 
-
 def show_menu(menu):
     options=menu.keys()
     for entry in options: 
       print(f'[{entry}] - {menu[entry]}')
+
+def dontask(dict): #Dict to Str that looks like a Dict (formerly 'dtstllad()')
+    string = str(dict)
+    string = string.replace('{','{\n')
+    string = string.replace('}','\n}')
+    string = string.replace(', ',',\n')
+    return string
+
+#---- ----SAVE LOGIC
+
+def save(key='',val='',filename='data.txt'):
+    #---- Intercepting file corruption, restoring default save files
+    try: 
+        with open(filename, 'r+') as savestate:
+            eval(savestate.read()) == 'dict'
+    except Exception as reason:
+        print(f'Error: {reason}\nRestoring default save')
+        from menu_dicts import default_save
+        with open(filename, 'w+') as savestate:
+            savestate.write(dontask(default_save))
+    finally:
+        with open(filename, 'r') as savestate:
+            save_dict = eval(savestate.read())
+    #---- Overwriting 
+    with open(filename, 'w') as savestate:
+        if val != '':
+            if val == 'del':
+                del save_dict[key]
+            else:
+                save_dict[key] = val
+        savestate.write(dontask(save_dict))
+    return save_dict

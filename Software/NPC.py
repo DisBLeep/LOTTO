@@ -1,15 +1,15 @@
 import os
+import csv
 from menu_dicts import *
 from func import *
 
-
-
-def temp(game):
-    for i in range(game.roll_range):
-        print(i)
-        print(game.roll_range)
 clear()
 
-print('----')
-bankroll(Lotto)
-print
+print(  save()              )
+
+print(  save('npc3', 300)   )
+
+print(  save('npc4', 400)   )
+
+print(  save('npc3', 'del') )
+
