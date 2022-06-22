@@ -4,15 +4,6 @@ from newfunc import *
 from menu_dicts import *
 clear()
 
-"""
-lotto
-Wybierz 6 liczb z 49
-multi multi
-Wytypuj swoje liczby z zakresu od 1 do 80.
-eurojackpot
-Wybierz 5 liczb z 50 i 2 liczby z 12 
-"""
-
 while True:
     clear()
     x = show_menu(menu_main)
@@ -23,24 +14,40 @@ while True:
     while menu_main[x] != "Exit":
         clear()
         game = menu_main[x]
-        print(f'--{game}--\n')
+        print(f'---{game}---  >', end="", flush=True)
+        print(eval(f'{game}.Opis') + "\n")
+
         y = show_menu(menu_game)
 
         if menu_game[y] == "Menu":
             break
 
-        if menu_game[y] == "Opis":
+        if menu_game[y] == "Zasady":
             clear()     
             print(eval(f'{game}.{menu_game[y]}'))
-            input("\nPress Any to continue...")
+            input("\nPress Enter to continue...")
 
         if menu_game[y] == "Graj":
-            let_user_choose(
-                min = eval(f'{game}.roll_range["min"]'),
-                max = eval(f'{game}.roll_range["max"]'),
-                amt = eval(f'{game}.roll_count'))
+            min = eval(f'{game}.roll_range["min"]')
+            max = eval(f'{game}.roll_range["max"]')
+            amt = eval(f'{game}.roll_count')
 
-        
+            userticket = let_user_choose(min, max, amt)
+            bankticket = let_bank_choose(min, max, amt)
+            csvwrite(game,userticket)
+            csvwrite(game,bankticket, 'bank')
+            matched = len(set(userticket) & set(bankticket))
+            csvwrite(game,matched    , 'match')
+
+            clear()
+            if matched>0:
+                input(f'Congrats! You matched {matched} numbers!!\n\nPress Enter to continue...')
+            else:
+                input(f'No Luck...\n\nPress Enter to continue...')
+            break
+
+
+    
 
 
 
