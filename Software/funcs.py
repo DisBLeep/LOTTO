@@ -2,20 +2,10 @@ import random as r
 import os
 import time
 import csv
-from menu_dicts import *
+from data import *
 
 def clear():
     os.system('cls||clear')
-
-def let_bank_choose(min, max, amt):
-    result = r.sample(range(min, max), amt)
-    result.sort()
-    return result
-
-def log(type, msg):
-    logfile = open("logfile.txt", "a")
-    logfile.write(f'{timestamp()}|{type}|{msg}\n')
-    logfile.close()
 
 def timestamp():
     currenttime = time.localtime()
@@ -29,6 +19,11 @@ def askYN(ask):
         clear()
         user_answer = input(f'{ask} (Y/N)')
     return user_answer.upper()
+
+def let_bank_choose(min, max, amt):
+    result = r.sample(range(min, max), amt)
+    result.sort()
+    return result
 
 def let_user_choose(min, max, amt):
     choice_pallet = list(range(min, max+1))
@@ -61,8 +56,8 @@ def show_menu(menu):
     while menu_choice not in options:
         #clear()
         for entry in options: 
-            print(f'[{entry}] - {menu[entry]}')
-        menu_choice = input(f'\nWybierz: {", ".join(options[:-1])} lub {options[-1]}\n>')
+            print(f'[{entry}] - {menu[entry]}') #NOW youre thinkin with yo dic's
+        menu_choice = input(f'\nChoose: {", ".join(options[:-1])} or {options[-1]}\n>')
     return menu_choice
 
 def csvwrite(Game, Numbers, Player='user'):

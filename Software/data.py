@@ -12,18 +12,18 @@ menu_game = {
 }
 
 class Game():
-    def __init__(game, name, roll_range, nchs_amt, sdesc, Ruleset):
-        game.name       = name
-        game.roll_range = roll_range
-        game.nchs_amt   = nchs_amt
-        game.Desc       = sdesc
-        game.Ruleset    = Ruleset
+    def __init__(game, name, roll_range, nchs_amt, sdesc, ruleset):
+        game.name       = name          # Name of the game, simple... actually unused?
+        game.roll_range = roll_range    # Sets of range definitions
+        game.nchs_amt   = nchs_amt      # Amount of N to choose
+        game.Desc       = sdesc         # Short Description
+        game.Ruleset    = ruleset       # Buncha rules, doesnt apply, just for show
 
 Lotto = Game(   name        = 'Lotto', 
                 roll_range  = [{'min':1, 'max':49}], 
                 nchs_amt    = [6],
                 sdesc       = "Roll ONCE: 6 numbers between 1-49",
-                Ruleset     = '''
+                ruleset     = '''
 + W losowaniu bierze udział 49 kul.
 + W zakładach prostych typuje się 6 z 49 liczb, a w zakładach systemowych 7 do 12 liczb.
 + Wygrywasz za 3,4,5,6 trafień.
@@ -39,7 +39,7 @@ Multi = Game(   name        = 'Lotto',
                 roll_range  = [{'min':1, 'max':80}], 
                 nchs_amt    = [10],
                 sdesc       = "Roll ONCE: 10 numbers between 1-80",
-                Ruleset      = '''
+                ruleset      = '''
 + W losowaniu bierze udział 80 kul, losuje się 20 z nich.
 + W zakładach wybiera się od 1 do 10 z 80 liczb.
 + Wygrane są zależne od ilości typowanych liczb, poniżej znajdziesz table wygranych.
@@ -53,7 +53,7 @@ EuroJ = Game(   name        = 'EuroJ',
                 roll_range  = [{'min':1, 'max':50},{'min':1, 'max':12}], 
                 nchs_amt    = [5,2],
                 sdesc       = "Roll TWICE: 5 numbers between 1-50 AND 2 numbers betweem 1-13",
-                Ruleset      = '''
+                ruleset      = '''
 + W losowaniu bierze udział 50 kul, z których typuje się 5. Dodatkowo Gracz wybiera 2 z 12 kul i skreśla na blankiecie.
 + Aby trafić Jackpota, czyli kumulację trzeba poprawnie wytypować 5 oraz 2 liczby (5 + 2).
 + Cena za zakład to 12,50 zł.

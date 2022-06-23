@@ -1,6 +1,6 @@
 
-from newfunc import *
-from menu_dicts import *
+from funcs import *
+from data import *
 clear()
 
 while True:
@@ -14,7 +14,7 @@ while True:
         clear()
         game = menu_main[x]
         print(f'---{game}---  ', end="", flush=True)
-        print(eval(f'{game}.Desc') + "\n")
+        print(eval(f'{game}.Desc') + "\n") #Yeah i just make command strings and eval them, you scared?
 
         y = show_menu(menu_game)
 
@@ -30,7 +30,7 @@ while True:
             totuser, totbank, totmatch, matched = [],[],[],0
             rollamtcheck = eval(f'len({game}.nchs_amt)')
 
-            for rolls in range(rollamtcheck):
+            for rolls in range(rollamtcheck): #Just for EuroJ since you roll two indp sets in one game
 
                 min = eval(f'{game}.roll_range[{rolls}]["min"]')
                 max = eval(f'{game}.roll_range[{rolls}]["max"]')
