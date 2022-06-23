@@ -1,6 +1,8 @@
 # FILES
 Software/MAIN.py is the file youre lookin for
+
 Software/funcs.py is used to store functions
+
 Software/data.py is used for storing menu's and game specific objects
 
 # Blogpost
