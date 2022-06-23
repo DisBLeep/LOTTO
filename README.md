@@ -1,5 +1,5 @@
 # FILES
-Software/MAIN.py is the file youre lookin for
+Software/MAIN.py is the file you run <<<<<<!!!!!!
 
 Software/funcs.py is used to store functions
 
