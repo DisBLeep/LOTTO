@@ -1,6 +1,5 @@
 import random as r
 import os
-from sqlite3 import Row
 import time
 import csv
 from menu_dicts import *
@@ -19,9 +18,9 @@ def log(type, msg):
     logfile.close()
 
 def timestamp():
-    named_tuple = time.localtime() # get struct_time
-    time_string = time.strftime("%d.%m.%y|%H:%M:%S", named_tuple)
-    return time_string
+    currenttime = time.localtime()
+    timestring = time.strftime("%d.%m.%y|%H:%M:%S", currenttime)
+    return timestring
 
 def askYN(ask):
     answers = ['Y','N']
@@ -32,7 +31,7 @@ def askYN(ask):
     return user_answer.upper()
 
 def let_user_choose(min, max, amt):
-    choice_pallet = list(range(min, max))
+    choice_pallet = list(range(min, max+1))
     choice_commit = []
     while len(choice_commit)<amt:
         clear()
@@ -79,4 +78,3 @@ def csvwrite(Game, Numbers, Player='user'):
     with open(filename, 'a', encoding='UTF8', newline='') as a:
         writer = csv.writer(a)
         writer.writerow(to_write)
-

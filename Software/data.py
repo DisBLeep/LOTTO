@@ -6,24 +6,24 @@ menu_main = {
 }
 
 menu_game = {
-    '1':'Graj',
-    '2':'Zasady',
+    '1':'Play',
+    '2':'Ruleset',
     '3':'Menu'  
 }
 
 class Game():
-    def __init__(game, name, roll_range, nchs_amt, sdesc, zasady):
+    def __init__(game, name, roll_range, nchs_amt, sdesc, Ruleset):
         game.name       = name
         game.roll_range = roll_range
-        game.nchs_amt = nchs_amt
-        game.Opis       = sdesc
-        game.Zasady     = zasady
+        game.nchs_amt   = nchs_amt
+        game.Desc       = sdesc
+        game.Ruleset    = Ruleset
 
 Lotto = Game(   name        = 'Lotto', 
                 roll_range  = [{'min':1, 'max':49}], 
                 nchs_amt    = [6],
-                sdesc       = "Gra popularna ze względu na swoją wszechstronność. Możesz używać wielokrotnych stawek i typować dowolną ilość liczb.",
-                zasady      = '''
+                sdesc       = "Roll ONCE: 6 numbers between 1-49",
+                Ruleset     = '''
 + W losowaniu bierze udział 49 kul.
 + W zakładach prostych typuje się 6 z 49 liczb, a w zakładach systemowych 7 do 12 liczb.
 + Wygrywasz za 3,4,5,6 trafień.
@@ -38,8 +38,8 @@ Lotto = Game(   name        = 'Lotto',
 Multi = Game(   name        = 'Lotto', 
                 roll_range  = [{'min':1, 'max':80}], 
                 nchs_amt    = [10],
-                sdesc       = "Najpopularniejsza gra Totalizatora Sportowego, oferuje bardzo wysokie wygrane w przypadku trafienia 6/6 liczb. Jednocześnie jest to najstarsza z gier losowych w Polsce.",
-                zasady      = '''
+                sdesc       = "Roll ONCE: 10 numbers between 1-80",
+                Ruleset      = '''
 + W losowaniu bierze udział 80 kul, losuje się 20 z nich.
 + W zakładach wybiera się od 1 do 10 z 80 liczb.
 + Wygrane są zależne od ilości typowanych liczb, poniżej znajdziesz table wygranych.
@@ -52,8 +52,8 @@ Multi = Game(   name        = 'Lotto',
 EuroJ = Game(   name        = 'EuroJ', 
                 roll_range  = [{'min':1, 'max':50},{'min':1, 'max':12}], 
                 nchs_amt    = [5,2],
-                sdesc       = "Szansa na główną wygraną Eurojackpot to jak 1 do 139 838 159, w grze zastosowano aż 50 kul w jednym bębnie maszyny losującej oraz 12 w drugim.",
-                zasady      = '''
+                sdesc       = "Roll TWICE: 5 numbers between 1-50 AND 2 numbers betweem 1-13",
+                Ruleset      = '''
 + W losowaniu bierze udział 50 kul, z których typuje się 5. Dodatkowo Gracz wybiera 2 z 12 kul i skreśla na blankiecie.
 + Aby trafić Jackpota, czyli kumulację trzeba poprawnie wytypować 5 oraz 2 liczby (5 + 2).
 + Cena za zakład to 12,50 zł.
