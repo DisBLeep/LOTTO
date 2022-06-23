@@ -31,9 +31,6 @@ while True:
             print(eval(f'{game}.{menu_game[y]}'))
             input("\nPress Enter to continue...")
 
-        if menu_game[y] == "Log":
-            showlog()
-
         if menu_game[y] == "Play":
             totuser, totbank, totmatch, matched = [],[],[],0
             rollamtcheck = eval(f'len({game}.nchs_amt)')
