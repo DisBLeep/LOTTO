@@ -12,7 +12,9 @@ But, i got REALLY mad and burned out trying to write my own save logic, somethin
 
 The focus was on expandability, hence so many 'eval()'s i didnt know how to work around, its just my way of making it as dynamic as i can. Plopping in a new game is just popping the class in and making the matching menu entry. The functions are so autistically dynamic that everything else _should_ work : )
 
-#Memory hall
+# Memory hall
+
+In honour of the save logic that didnt 
 
 ![image](https://user-images.githubusercontent.com/102161796/175241087-8c16bdd1-1c58-4cfe-8445-5b233207c925.png)
 
