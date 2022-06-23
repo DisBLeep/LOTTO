@@ -49,6 +49,8 @@ while True:
                 amt = eval(f'{game}.nchs_amt[{rolls}]')
 
                 userticket  = let_user_choose(min, max, amt)
+                if userticket == 'denied':
+                    break
                 bankticket  = let_bank_choose(min, max, amt)
                 matched    += len(set(userticket) & set(bankticket))
 
@@ -61,6 +63,8 @@ while True:
             csvwrite(game,totmatch,'match')
 
             clear()
+            if userticket == 'denied':
+                break
             if matched>0:
                 input(f'Congrats! You matched {matched} numbers total!!\n\nPress Enter to continue...')
             else:

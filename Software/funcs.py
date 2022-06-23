@@ -62,7 +62,7 @@ def let_user_choose(min, max, amt):
         choice_commit.sort()
         return choice_commit
     else:
-        exit
+        return 'denied'
 
 #---SAVE LOGIC
 
