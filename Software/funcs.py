@@ -53,12 +53,12 @@ def let_user_choose(min, max, amt):
 def show_menu(menu):
     options = list(menu.keys())
     menu_choice = ''
-    while menu_choice not in options:
+    while menu_choice.upper() not in options:
         #clear()
         for entry in options: 
             print(f'[{entry}] - {menu[entry]}') #NOW youre thinkin with yo dic's
         menu_choice = input(f'\nChoose: {", ".join(options[:-1])} or {options[-1]}\n>')
-    return menu_choice
+    return menu_choice.upper()
 
 def csvwrite(Game, Numbers, Player='user'):
     header   = ['Time', 'Player', 'Game', 'Numbers']
@@ -73,3 +73,10 @@ def csvwrite(Game, Numbers, Player='user'):
     with open(filename, 'a', encoding='UTF8', newline='') as a:
         writer = csv.writer(a)
         writer.writerow(to_write)
+
+def showlog():
+    clear()
+    filename = 'GameLog.csv'
+    with open(filename, 'r', encoding='UTF8', newline='') as r:
+        print(r.read())
+    input(f'\nPress Enter to continue...')

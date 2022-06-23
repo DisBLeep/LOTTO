@@ -5,10 +5,15 @@ clear()
 
 while True:
     clear()
+    print(f'---Main Menu---\n')
     x = show_menu(menu_main)
     if menu_main[x] == "Exit":
         clear()
         quit()
+
+    if menu_main[x] == "Log":
+        showlog()
+        continue
 
     while menu_main[x] != "Exit":
         clear()
@@ -25,6 +30,9 @@ while True:
             clear()     
             print(eval(f'{game}.{menu_game[y]}'))
             input("\nPress Enter to continue...")
+
+        if menu_game[y] == "Log":
+            showlog()
 
         if menu_game[y] == "Play":
             totuser, totbank, totmatch, matched = [],[],[],0

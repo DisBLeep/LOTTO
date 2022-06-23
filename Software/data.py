@@ -2,7 +2,8 @@ menu_main = {
     '1':'Lotto',
     '2':'Multi',
     '3':'EuroJ',
-    '4':'Exit'
+    '4':'Exit',
+    'L':'Log'
 }
 
 menu_game = {
