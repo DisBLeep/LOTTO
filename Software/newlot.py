@@ -1,5 +1,4 @@
 import os
-from turtle import xcor
 from newfunc import *
 from menu_dicts import *
 clear()
@@ -28,16 +27,27 @@ while True:
             input("\nPress Enter to continue...")
 
         if menu_game[y] == "Graj":
-            min = eval(f'{game}.roll_range["min"]')
-            max = eval(f'{game}.roll_range["max"]')
-            amt = eval(f'{game}.roll_count')
+            totuser, totbank, totmatch, matched = [],[],[],0
+            rollcheck = eval(f'len({game}.nchs_amt)')
 
-            userticket = let_user_choose(min, max, amt)
-            bankticket = let_bank_choose(min, max, amt)
-            csvwrite(game,userticket)
-            csvwrite(game,bankticket, 'bank')
-            matched = len(set(userticket) & set(bankticket))
-            csvwrite(game,matched    , 'match')
+            for rolls in range(0,rollcheck):
+
+                min = eval(f'{game}.roll_range[{rolls}]["min"]')
+                max = eval(f'{game}.roll_range[{rolls}]["max"]')
+                amt = eval(f'{game}.nchs_amt[{rolls}]')
+
+                userticket = let_user_choose(min, max, amt)
+                bankticket = let_bank_choose(min, max, amt)
+                matched += len(set(userticket) & set(bankticket))
+
+                totuser.append(userticket)
+                totbank.append(bankticket)
+                totmatch.append(matched)
+
+                csvwrite(game,totuser)
+                csvwrite(game,totbank,'bank')
+                csvwrite(game,totmatch,'match')
+
 
             clear()
             if matched>0:

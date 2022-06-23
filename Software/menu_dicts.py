@@ -12,16 +12,16 @@ menu_game = {
 }
 
 class Game():
-    def __init__(game, name, roll_range, roll_count, sdesc, zasady):
+    def __init__(game, name, roll_range, nchs_amt, sdesc, zasady):
         game.name       = name
         game.roll_range = roll_range
-        game.roll_count = roll_count
+        game.nchs_amt = nchs_amt
         game.Opis       = sdesc
         game.Zasady     = zasady
 
 Lotto = Game(   name        = 'Lotto', 
-                roll_range  = {'min':1, 'max':49}, 
-                roll_count  = 6,
+                roll_range  = [{'min':1, 'max':49}], 
+                nchs_amt    = [6],
                 sdesc       = "Gra popularna ze względu na swoją wszechstronność. Możesz używać wielokrotnych stawek i typować dowolną ilość liczb.",
                 zasady      = '''
 + W losowaniu bierze udział 49 kul.
@@ -36,8 +36,8 @@ Lotto = Game(   name        = 'Lotto',
 
 
 Multi = Game(   name        = 'Lotto', 
-                roll_range  = {'min':1, 'max':80}, 
-                roll_count  = 10,
+                roll_range  = [{'min':1, 'max':80}], 
+                nchs_amt    = [10],
                 sdesc       = "Najpopularniejsza gra Totalizatora Sportowego, oferuje bardzo wysokie wygrane w przypadku trafienia 6/6 liczb. Jednocześnie jest to najstarsza z gier losowych w Polsce.",
                 zasady      = '''
 + W losowaniu bierze udział 80 kul, losuje się 20 z nich.
@@ -50,8 +50,8 @@ Multi = Game(   name        = 'Lotto',
                 )
 
 EuroJ = Game(   name        = 'EuroJ', 
-                roll_range  = {'min':1, 'max':50}, 
-                roll_count  = 5,
+                roll_range  = [{'min':1, 'max':50},{'min':1, 'max':12}], 
+                nchs_amt    = [5,2],
                 sdesc       = "Szansa na główną wygraną Eurojackpot to jak 1 do 139 838 159, w grze zastosowano aż 50 kul w jednym bębnie maszyny losującej oraz 12 w drugim.",
                 zasady      = '''
 + W losowaniu bierze udział 50 kul, z których typuje się 5. Dodatkowo Gracz wybiera 2 z 12 kul i skreśla na blankiecie.
