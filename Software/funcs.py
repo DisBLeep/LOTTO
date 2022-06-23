@@ -4,6 +4,8 @@ import time
 import csv
 from data import *
 
+#---UTILITIES
+
 def clear():
     os.system('cls||clear')
 
@@ -19,6 +21,18 @@ def askYN(ask):
         clear()
         user_answer = input(f'{ask} (Y/N)')
     return user_answer.upper()
+
+def show_menu(menu):
+    options = list(menu.keys())
+    menu_choice = ''
+    if menu_choice.upper() not in options:
+        #clear()
+        for entry in options: 
+            print(f'[{entry}] - {menu[entry]}') #NOW youre thinkin with yo dic's
+        menu_choice = input(f'\nChoose: {", ".join(options[:-1])} or {options[-1]}\n>')
+    return menu_choice.upper()
+
+#---ROLL LOGIC
 
 def let_bank_choose(min, max, amt):
     result = r.sample(range(min, max), amt)
@@ -50,33 +64,32 @@ def let_user_choose(min, max, amt):
     else:
         exit
 
-def show_menu(menu):
-    options = list(menu.keys())
-    menu_choice = ''
-    while menu_choice.upper() not in options:
-        #clear()
-        for entry in options: 
-            print(f'[{entry}] - {menu[entry]}') #NOW youre thinkin with yo dic's
-        menu_choice = input(f'\nChoose: {", ".join(options[:-1])} or {options[-1]}\n>')
-    return menu_choice.upper()
+#---SAVE LOGIC
 
 def csvwrite(Game, Numbers, Player='user'):
-    header   = ['Time', 'Player', 'Game', 'Numbers']
+    createlog()
+    filename = 'GameLog.csv'
     Time = timestamp()
     to_write = [Time, Player, Game, Numbers]
-    filename = 'GameLog.csv'
-
-    if not os.path.isfile(filename):
-        with open(filename, 'w', encoding='UTF8', newline='') as w:
-            writer = csv.writer(w)
-            writer.writerow(header)
     with open(filename, 'a', encoding='UTF8', newline='') as a:
         writer = csv.writer(a)
         writer.writerow(to_write)
 
 def showlog():
-    clear()
+    createlog()
     filename = 'GameLog.csv'
+    clear()
     with open(filename, 'r', encoding='UTF8', newline='') as r:
         print(r.read())
-    input(f'\nPress Enter to continue...')
+    z = input(f'\nPress Enter to continue... (or type "clear" to clear the log)')
+    if z == 'clear':
+        os.remove(filename)
+        input('Log Cleared\n\nPress Enter to continue...')
+
+def createlog():
+    filename = 'GameLog.csv'
+    if not os.path.exists(filename):
+        header   = ['Time', 'Player', 'Game', 'Numbers']
+        with open(filename, 'w', encoding='UTF8', newline='') as w:
+            writer = csv.writer(w)
+            writer.writerow(header)
