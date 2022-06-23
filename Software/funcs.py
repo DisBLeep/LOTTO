@@ -66,7 +66,7 @@ def let_user_choose(min, max, amt):
 
 #---SAVE LOGIC
 
-def csvwrite(Game, Numbers, Player='user'):
+def csvwrite(Game, Numbers, Player='User'):
     createlog()
     if len(Numbers)>0:
         filename = 'GameLog.csv'
@@ -81,7 +81,10 @@ def showlog():
     filename = 'GameLog.csv'
     clear()
     with open(filename, 'r', encoding='UTF8', newline='') as r:
-        print(r.read())
+        nice_csv = csv.reader(r)
+        for row in nice_csv:
+            print('{:<20}  {:<6}  {:<8} {:<40}'.format(*row))
+
     z = input(f'\nPress Enter to continue... (or type "clear" to clear the log)')
     if z == 'clear':
         os.remove(filename)

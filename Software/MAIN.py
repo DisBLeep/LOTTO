@@ -60,10 +60,10 @@ while True:
 
             if userticket == 'denied':
                 break
-            
             csvwrite(game,totuser)
-            csvwrite(game,totbank,'bank')
-            csvwrite(game,totmatch,'match')
+            csvwrite(game,totbank,'Bank')
+            csvwrite(game,totmatch,'Match')
+            csvwrite(' ',' ',' ')
             clear()
 
             if matched>0:
