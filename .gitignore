@@ -1,3 +1,11 @@
+__pycache__/
+test.py
 testsite.py
+GameLog.csv
 *.csv
+
 Software/GameLog.csv
+Software/test.py
+Software/testsite.py
+Software/*.csv
+Software/__pycache__/
