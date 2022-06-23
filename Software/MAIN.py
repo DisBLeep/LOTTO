@@ -58,13 +58,14 @@ while True:
                 totbank.append(bankticket)
                 totmatch.append(matched)
 
+            if userticket == 'denied':
+                break
+            
             csvwrite(game,totuser)
             csvwrite(game,totbank,'bank')
             csvwrite(game,totmatch,'match')
-
             clear()
-            if userticket == 'denied':
-                break
+
             if matched>0:
                 input(f'Congrats! You matched {matched} numbers total!!\n\nPress Enter to continue...')
             else:

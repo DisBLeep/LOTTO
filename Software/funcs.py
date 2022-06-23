@@ -68,12 +68,13 @@ def let_user_choose(min, max, amt):
 
 def csvwrite(Game, Numbers, Player='user'):
     createlog()
-    filename = 'GameLog.csv'
-    Time = timestamp()
-    to_write = [Time, Player, Game, Numbers]
-    with open(filename, 'a', encoding='UTF8', newline='') as a:
-        writer = csv.writer(a)
-        writer.writerow(to_write)
+    if len(Numbers)>0:
+        filename = 'GameLog.csv'
+        Time = timestamp()
+        to_write = [Time, Player, Game, Numbers]
+        with open(filename, 'a', encoding='UTF8', newline='') as a:
+            writer = csv.writer(a)
+            writer.writerow(to_write)
 
 def showlog():
     createlog()
