@@ -6,7 +6,7 @@ Software/funcs.py is used to store functions
 Software/data.py is used for storing menu's and game specific objects
 
 # Blogpost
-Back a few months ago i tried writing this with the premise of making it full-fledged ie. with a balance account thatd you spend on tickets, time-based bankrolls and thousands of 'NPC's' rolling with you, self-regulating bank balance.
+Back a few months ago i tried writing this with the premise of making it full-fledged ie. with a balance account thatd you spend on tickets, time-based bankrolls and thousands of 'NPC's' rolling with you, self-regulating bank economy.
 
 But, i got REALLY mad and burned out trying to write my own save logic, something about working with files in python just doesnt sit well with me. I picked it up again but this time not overshooting with my expectations - did what i had to do and did it well, i think
 
