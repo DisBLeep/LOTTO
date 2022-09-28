@@ -22,7 +22,7 @@ while True:
     while menu_main[x] in list(menu_main.values()):
         clear()
         game = menu_main[x]
-        print(f'---{game}---  ', end="", flush=True)
+        print(f'---{eval(f"{game}.name")}---  ', end="", flush=True)
         print(eval(f'{game}.Desc') + "\n") #Yeah i just make command strings and eval them, you scared?
 
         y = show_menu(menu_game)

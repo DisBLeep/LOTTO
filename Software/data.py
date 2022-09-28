@@ -36,11 +36,11 @@ Lotto = Game(   name        = 'Lotto',
                 )
 
 
-Multi = Game(   name        = 'Lotto', 
+Multi = Game(   name        = 'Multi Multi', 
                 roll_range  = [{'min':1, 'max':80}], 
                 nchs_amt    = [10],
                 sdesc       = "Roll ONCE: 10 numbers between 1-80",
-                ruleset      = '''
+                ruleset     = '''
 + W losowaniu bierze udział 80 kul, losuje się 20 z nich.
 + W zakładach wybiera się od 1 do 10 z 80 liczb.
 + Wygrane są zależne od ilości typowanych liczb, poniżej znajdziesz table wygranych.
@@ -50,11 +50,11 @@ Multi = Game(   name        = 'Lotto',
 + Na wypłaty przeznacza się co najmniej 51 % łącznej kwoty stawek wpłaconych za udział w grze.'''
                 )
 
-EuroJ = Game(   name        = 'EuroJ', 
+EuroJ = Game(   name        = 'Euro Jackpot', 
                 roll_range  = [{'min':1, 'max':50},{'min':1, 'max':12}], 
                 nchs_amt    = [5,2],
                 sdesc       = "Roll TWICE: 5 numbers between 1-50 AND 2 numbers betweem 1-13",
-                ruleset      = '''
+                ruleset     = '''
 + W losowaniu bierze udział 50 kul, z których typuje się 5. Dodatkowo Gracz wybiera 2 z 12 kul i skreśla na blankiecie.
 + Aby trafić Jackpota, czyli kumulację trzeba poprawnie wytypować 5 oraz 2 liczby (5 + 2).
 + Cena za zakład to 12,50 zł.
